@@ -40,6 +40,11 @@ The Spotify segment is displayed only while a track is playing or paused. It rem
 
 The theme uses Nerd Font glyphs for its Powerline separators and development-tool icons.
 
+> [!NOTE]
+> The right-aligned Spotify segment is supported in PowerShell, Zsh, Fish,
+> Nushell and cmd. Bash requires [ble.sh](https://github.com/akinomyoga/ble.sh)
+> for right-prompt support.
+
 ## Installation
 
 Clone the repository:
