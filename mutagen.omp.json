@@ -1,0 +1,81 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "rprompt",
+      "segments": [
+        {
+          "type": "spotify",
+          "style": "plain",
+          "foreground": "#65BE72",
+          "template": "{{ if or (eq .Status \"playing\") (eq .Status \"paused\") }}{{ .Icon }}{{ .Artist }} - {{ .Track }}{{ end }}",
+          "options": {
+            "playing_icon": "▶ ",
+            "paused_icon": "⏸ ",
+            "stopped_icon": "◼ "
+          }
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "background": "#6FAE3D",
+          "foreground": "#182414",
+          "template": "{{ .UserName }} "
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "#7654B0",
+          "foreground": "#F2EDF7",
+          "options": {
+            "style": "folder"
+          },
+          "template": " {{ .Path }} "
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "#C16F55",
+          "foreground": "#2A1914",
+          "options": {
+            "branch_icon": "",
+            "fetch_status": false,
+            "fetch_upstream_icon": true
+          },
+          "template": " \ue725 ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}) "
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "#7095AC",
+          "foreground": "#16262E",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#292610",
+          "background": "#D5C04F",
+          "properties": {
+            "display_mode": "environment",
+            "home_enabled": true
+          },
+          "template": " \ue73c {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 4
+}
