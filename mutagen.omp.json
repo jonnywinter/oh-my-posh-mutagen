@@ -8,12 +8,7 @@
           "type": "spotify",
           "style": "plain",
           "foreground": "#65BE72",
-          "template": "{{ if or (eq .Status \"playing\") (eq .Status \"paused\") }}{{ .Icon }}{{ .Artist }} - {{ .Track }}{{ end }}",
-          "options": {
-            "playing_icon": "▶ ",
-            "paused_icon": "⏸ ",
-            "stopped_icon": "◼ "
-          }
+          "template": "{{ if eq .Status \"playing\" }}▶ {{ .Artist }} - {{ .Track }}{{ else if eq .Status \"paused\" }}⏸ {{ .Artist }} - {{ .Track }}{{ else if eq .Status \"stopped\" }}◼ {{ .Artist }} - {{ .Track }}{{ end }}"
         }
       ]
     },
@@ -26,7 +21,7 @@
           "leading_diamond": "\ue0b6",
           "background": "#6FAE3D",
           "foreground": "#182414",
-          "template": "{{ .UserName }} "
+          "template": "{{ if .Root }}⚡{{ else }}{{ end }} "
         },
         {
           "type": "path",
@@ -58,7 +53,7 @@
           "powerline_symbol": "\ue0b0",
           "background": "#7095AC",
           "foreground": "#16262E",
-          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+          "template": " \ue718 {{ .Major }}.{{ .Minor }} "
         },
         {
           "type": "python",
@@ -70,7 +65,7 @@
             "display_mode": "environment",
             "home_enabled": true
           },
-          "template": " \ue73c {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+          "template": " \ue73c {{ .Major }}.{{ .Minor }} "
         }
       ],
       "type": "prompt"
