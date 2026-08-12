@@ -45,7 +45,7 @@
             "fetch_status": false,
             "fetch_upstream_icon": true
           },
-          "template": " \ue725 ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}) "
+          "template": " \uf418 {{ .Ref }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
         },
         {
           "type": "node",
@@ -65,7 +65,7 @@
             "display_mode": "environment",
             "home_enabled": true
           },
-          "template": " \ue73c {{ .Major }}.{{ .Minor }} "
+         "template": " \ue73c {{ .Major }}.{{ .Minor }} "
         }
       ],
       "type": "prompt"
